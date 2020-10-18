@@ -1,0 +1,183 @@
+body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    background-color: rgb(250, 250, 250);
+}
+
+h1{
+    text-align: center;
+    color: #3F51B5;
+    margin: 50px;
+}
+
+.tax-law {
+    font-size: 18px;
+}
+
+.paper {
+    margin: 50px 0 100px 0;
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+
+.first-line {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.input {
+    width: 65%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.value-input {
+    width: 45%;
+    margin-bottom: 15px !important;
+}
+
+.selects {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.currency {
+    width: 100px;
+    margin: 0 10px !important;
+}
+
+.weight-input {
+    position: relative;
+    width: 83px;
+    height: 56px;
+    margin: 0;
+}
+
+.weight-input input {
+    border: solid 1px #bdbdbd;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-indent: 12px;
+    font-size: 16px;
+    position: relative;
+}
+
+.weight-input input:focus {
+    border: solid 2px #3F51b5;
+    outline: none;
+}
+
+.weight-input::after {
+    color: gray;
+    content: 'Կգ';
+    position: absolute;
+    font-size: 1rem;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+    right: 9px;
+    top: 15px;
+}
+
+.tax-price {
+    border: solid 1px #C4C4C4;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.tax-price input {
+    height: 20px;
+    color: tomato;
+    width: 100%;
+}
+
+.no-tax input {
+    color: limegreen;
+}
+
+.checkbox-weight {
+    margin-top: 40px;
+}
+
+@media only screen and (max-width: 760px) {
+
+    h1{
+        /*font-size: 20px;*/
+        margin: 20px;
+    }
+
+    .tax-law {
+        font-size: 11px;
+    }
+
+    .paper{
+        margin: 20px 0 100px 0;
+    }
+
+    .first-line {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .input {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        width: 100%;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .value-input {
+        width: 90%;
+    }
+
+    .tax-price > div {
+        width: 90%;
+    }
+
+    .tax-price {
+        width: 100%;
+        margin-top: 20px !important;
+    }
+}
