@@ -1,10 +1,11 @@
 import React, { PureComponent, createRef } from 'react';
 
 import { Grid, Paper, TextField, FormControlLabel, Checkbox } from '@material-ui/core';
-import CurrencyField from "./components/currencyField";
-import TaxPrice from "./components/taxPrice";
+import CurrencyField from "./components/CurrencyField";
+import TaxPrice from "./components/TaxPrice";
 import { api } from "./api";
 import './App.css';
+import Author from "./components/Author";
 
 // - Formatting Price
 
@@ -206,6 +207,7 @@ class App extends PureComponent {
                         </Paper>
                     </Grid>
                 </Grid>
+                <Author />
             </div>
         );
     }
