@@ -1,5 +1,5 @@
 ## Armenian tax Calculator
 
-### Calculate you tax
+### Calculate your tax
 --------------------------
 ### Demo - https://arm-tax-calc.firebaseapp.com
