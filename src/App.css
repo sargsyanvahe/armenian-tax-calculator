@@ -137,11 +137,10 @@ h1{
 }
 
 .author-container{
-    position: fixed;
     display: flex;
     align-items: center;
-    bottom: 20px;
-    right: 20px;
+    width: max-content;
+    margin: -50px 16px 0 auto;
 }
 
 .author-container p{

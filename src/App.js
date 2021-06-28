@@ -1,11 +1,12 @@
 import React, { PureComponent, createRef } from 'react';
 
 import { Grid, Paper, TextField, FormControlLabel, Checkbox } from '@material-ui/core';
-import CurrencyField from "./components/CurrencyField";
-import TaxPrice from "./components/TaxPrice";
 import { api } from "./api";
-import './App.css';
 import Author from "./components/Author";
+import CurrencyField from "./components/currencyField";
+
+import './App.css';
+import TaxPrice from "./components/taxPrice";
 
 // - Formatting Price
 
@@ -63,14 +64,14 @@ class App extends PureComponent {
             tax = tax.format(2)
         }
 
-        this.setState({ tax })
+        this.setState({tax})
     };
 
     // -------------------------
 
     calculateTaxPrice = () => {
 
-        const { price, limit, percent, currency, rates, isHeavy, kg, kgLimit } = this.state;
+        const {price, limit, percent, currency, rates, isHeavy, kg, kgLimit} = this.state;
 
         let kgTax = 0;
         let priceTax = 0;
@@ -84,7 +85,6 @@ class App extends PureComponent {
         }
 
         function calculateKg(kg) {
-            console.log(kg, kgLimit, rates[currency])
             return (kg - kgLimit) * 2 * rates.EUR;
         }
 
@@ -100,7 +100,7 @@ class App extends PureComponent {
     };
 
     onCurrencyChange = async (currency) => {
-        await this.setState({ currency });
+        await this.setState({currency});
         this.calculateTax();
     };
 
@@ -133,7 +133,7 @@ class App extends PureComponent {
 
         if (kg === '' || re.test(kg)) {
             if (kg.length < 4) {
-                await this.setState({ kg: +kg });
+                await this.setState({kg: +kg});
                 this.calculateTax()
             }
         }
@@ -142,7 +142,14 @@ class App extends PureComponent {
 
     render() {
 
-        const { price, tax, isHeavy, currency, kg } = this.state;
+        const {price, tax, isHeavy, currency, rates, kg} = this.state;
+
+        const totalPrice = () => {
+
+            const tax = this.calculateTaxPrice();
+
+            return (currency === "AMD" ? tax + price : tax + price * rates[currency]).format()
+        }
 
         return (
             <div className="App">
@@ -183,7 +190,7 @@ class App extends PureComponent {
                                         </div>
                                     </div>
                                 </div>
-                                <TaxPrice taxPrice={tax}/>
+                                <TaxPrice taxPrice={tax} totalPrice={price && totalPrice()}/>
                             </div>
                             <div className='checkbox-weight'>
                                 <FormControlLabel
@@ -207,7 +214,7 @@ class App extends PureComponent {
                         </Paper>
                     </Grid>
                 </Grid>
-                <Author />
+                <Author/>
             </div>
         );
     }
