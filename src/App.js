@@ -151,7 +151,7 @@ class App extends PureComponent {
             return (currency === "AMD" ? tax + price : tax + price * rates[currency]).format()
         }
 
-        if (true){
+        if (this.state.loading){
             return <Loading/>
         }
 
