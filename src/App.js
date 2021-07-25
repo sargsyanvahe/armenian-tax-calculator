@@ -7,6 +7,7 @@ import CurrencyField from "./components/currencyField";
 
 import './App.css';
 import TaxPrice from "./components/taxPrice";
+import { Loading } from "./components/Loading";
 
 // - Formatting Price
 
@@ -35,22 +36,21 @@ class App extends PureComponent {
         },
         kg: '',
         isHeavy: false,
-        tax: ''
+        tax: '',
+        loading: true,
     };
 
     componentDidMount() {
-        this.getRates()
-    }
 
-    getRates = () => {
         api.outputData()
             .then(data => {
                 this.setState({
                     rates: data,
-                    limit: +data.EUR * 200
+                    limit: +data.EUR * 200,
+                    loading: false,
                 });
             })
-    };
+    }
 
     // - Final Calculate/Validate function
 
@@ -149,6 +149,10 @@ class App extends PureComponent {
             const tax = this.calculateTaxPrice();
 
             return (currency === "AMD" ? tax + price : tax + price * rates[currency]).format()
+        }
+
+        if (this.state.loading){
+            return <Loading/>
         }
 
         return (
