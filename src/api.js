@@ -7,11 +7,20 @@ class Api {
             .then(res => res.json())
     }
 
+    getToday() {
+        return new Date().toISOString().slice(0, 10)
+    }
+
 
     //- Transforming rates data -
     outputData() {
 
-        // - 2 fetches , because API not allowed to fetch 4 currencies immediately
+        const date = localStorage.getItem('date');
+
+        if (date === this.getToday()) {
+            return Promise.resolve(JSON.parse(localStorage.getItem('rates')))
+        }
+
         return this.fetchCurrencyRate().then(data => {
 
             const rates = {
@@ -21,7 +30,8 @@ class Api {
                 'GBP': data.GBP,
             }
 
-            console.log(rates)
+            localStorage.setItem('rates', JSON.stringify(rates));
+            localStorage.setItem('date', this.getToday());
 
             return {
                 'EUR': +data.EUR,
@@ -31,6 +41,7 @@ class Api {
             }
         })
     }
+
     // -------------------
 
 }
