@@ -7,9 +7,6 @@ import '../App.css'
 function Author() {
     return (
         <div className='author-container'>
-            <p>
-               Հեղինակ՝ Վահե Սարգսյան
-            </p>
             <div>
                 <a href='http://linkedin.com/in/vahe-sargsyan-6a66ba132' target='_blank'>
                     <img src={linkedinImg} alt="lnkdn"/>
