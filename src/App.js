@@ -8,6 +8,7 @@ import CurrencyField from "./components/currencyField";
 import './App.css';
 import TaxPrice from "./components/taxPrice";
 import { Loading } from "./components/Loading";
+import { disableBodyScroll } from "body-scroll-lock";
 
 // - Formatting Price
 
@@ -41,6 +42,8 @@ class App extends PureComponent {
     };
 
     componentDidMount() {
+
+        disableBodyScroll(document.querySelector('html'))
 
         api.outputData()
             .then(data => {
@@ -151,7 +154,7 @@ class App extends PureComponent {
             return (currency === "AMD" ? tax + price : tax + price * rates[currency]).format()
         }
 
-        if (this.state.loading){
+        if (this.state.loading) {
             return <Loading/>
         }
 

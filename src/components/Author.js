@@ -15,10 +15,6 @@ function Author() {
                     <img src={linkedinImg} alt="lnkdn"/>
                     <span>LinkedIn</span>
                 </a>
-                <a href='https://github.com/sargsyanvahe' target='_blank'>
-                    <img src={githubImg} alt="gthb"/>
-                    <span>GitHub</span>
-                </a>
             </div>
         </div>
     )
