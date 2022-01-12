@@ -16,9 +16,13 @@ class Api {
     outputData() {
 
         const date = localStorage.getItem('date');
+        // const hour = localStorage.getItem('hour');
+        const rates = localStorage.getItem('rates');
 
-        if ((date === this.getToday() && Number(localStorage.getItem('hour')) >= 16) || !window.navigator.onLine) {
-            return Promise.resolve(JSON.parse(localStorage.getItem('rates')))
+        console.log(date)
+
+        if ((date === this.getToday())) {
+            return Promise.resolve(JSON.parse(rates))
         }
 
         return this.fetchCurrencyRate().then(data => {
@@ -32,7 +36,7 @@ class Api {
 
             localStorage.setItem('rates', JSON.stringify(rates));
             localStorage.setItem('date', this.getToday());
-            localStorage.setItem('hour', String(new Date().getHours()));
+            // localStorage.setItem('hour', String(new Date().getHours()));
 
             return {
                 'EUR': +data.EUR,
