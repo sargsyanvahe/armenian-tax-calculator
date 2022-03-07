@@ -2,10 +2,10 @@
     "theme_color": "#5c6980",
     "background_color": "#3566f6",
     "display": "standalone",
-    "start_url": "https://arm-tax-calc.web.app/",
+    "start_url": "https://arm-tax.web.app/",
     "name": "Armenian Tax Calculator",
     "short_name": "ATC",
-    "description": "Armenian Tax Calclator",
+    "description": "Armenian Tax Calculator",
     "icons": [
         {
             "src": "/icon-192x192.png",

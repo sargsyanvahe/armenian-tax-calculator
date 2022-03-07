@@ -2,4 +2,4 @@
 
 ### Calculate your tax
 --------------------------
-### Demo - https://arm-tax-calc.firebaseapp.com
+### Demo - https://arm-tax.firebaseapp.com
