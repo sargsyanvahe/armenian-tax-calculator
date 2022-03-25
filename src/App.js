@@ -24,7 +24,7 @@ class App extends PureComponent {
     kgRef = createRef();
 
     state = {
-        kgLimit: 31,
+        kgLimit: 30,
         percent: 15,
         currency: 'AMD',
         limit: null,
@@ -49,7 +49,7 @@ class App extends PureComponent {
             .then(data => {
                 this.setState({
                     rates: data,
-                    limit: +data.EUR * 200,
+                    limit: 200000,
                     loading: false,
                 });
             })
@@ -145,7 +145,7 @@ class App extends PureComponent {
 
     render() {
 
-        const {price, tax, isHeavy, currency, rates, kg} = this.state;
+        const {price, tax, isHeavy, currency, rates, kg, kgLimit, percent} = this.state;
 
         const totalPrice = () => {
 
@@ -167,10 +167,12 @@ class App extends PureComponent {
 
                     <Grid xs={11} md={7} item>
                         <h1>Մաքսազերծման հաշվիչ</h1>
-                        <p className='tax-law'>«Եթե տեղափոխվող ապրանքների ընդհանուր քաշը գերազանցում է 31 կիլոգրամը, կամ
+                        <p className='tax-law'>«Եթե տեղափոխվող ապրանքների ընդհանուր քաշը գերազանցում
+                            է {kgLimit} կիլոգրամը, կամ
                             արժեքը գերազանցում
-                            է 200 եվրոյին համարժեք ՀՀ դրամը, ապա պետք է վճարվեն մաքսատուրք և հարկեր գերազանցող մասի
-                            համար՝ 15% դրույքաչափով, սակայն ոչ պակաս, քան 31 կիլոգրամը գերազանցող յուրաքանչյուր
+                            է 200,000 ՀՀ դրամը, ապա պետք է վճարվեն մաքսատուրք և հարկեր գերազանցող մասի
+                            համար՝ {percent}% դրույքաչափով, սակայն ոչ պակաս, քան {kgLimit} կիլոգրամը
+                            գերազանցող յուրաքանչյուր
                             կիլոգրամի համար 2 եվրոյին համարժեք ՀՀ դրամով:»</p>
                         <Paper className='paper' elevation={2}>
                             <div className='first-line'>
@@ -215,7 +217,7 @@ class App extends PureComponent {
                                             color="primary"
                                         />
                                     }
-                                    label="Ապրանքի քաշը գերազանցում է 31կգ"
+                                    label={`Ապրանքի քաշը գերազանցում է ${kgLimit}կգ`}
                                 />
                             </div>
                         </Paper>
