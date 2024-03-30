@@ -47,9 +47,10 @@ class App extends PureComponent {
 
         api.outputData()
             .then(data => {
+                console.log(data);
                 this.setState({
                     rates: data,
-                    limit: 200000,
+                    limit: data.EUR * 200,
                     loading: false,
                 });
             })
@@ -170,7 +171,7 @@ class App extends PureComponent {
                         <p className='tax-law'>«Եթե տեղափոխվող ապրանքների ընդհանուր քաշը գերազանցում
                             է {kgLimit} կիլոգրամը, կամ
                             արժեքը գերազանցում
-                            է 200,000 ՀՀ դրամը, ապա պետք է վճարվեն մաքսատուրք և հարկեր գերազանցող մասի
+                            է 200 եվրոն, ապա պետք է վճարվեն մաքսատուրք և հարկեր գերազանցող մասի
                             համար՝ {percent}% դրույքաչափով, սակայն ոչ պակաս, քան {kgLimit} կիլոգրամը
                             գերազանցող յուրաքանչյուր
                             կիլոգրամի համար 2 եվրոյին համարժեք ՀՀ դրամով:»</p>
